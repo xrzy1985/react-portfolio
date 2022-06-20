@@ -1,0 +1,16 @@
+.main-li {
+    background-color: lightgray;
+    color: #1EA2B4;
+}
+
+#react-blue-text {
+    color: #1EA2B4;
+}
+
+.section {
+    background-color: lightgray;
+    padding: 2vh 2vw;
+    width: 100%;
+    height: 80vh;
+    overflow: auto;
+}

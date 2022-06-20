@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Footer from './components/footer/footer.jsx';
+import Header from './components/header/header.jsx';
+import Main from './components/main/main.jsx';
 import './App.css';
 
-function App() {
+export default function App() {
+  const [ tab, setTab ] = useState({tab: 0});
+
+  function handleChangeTab(tab) {
+    setTab({tab: tab});
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <Header changeTab={handleChangeTab} />
+      <Main selection={tab} />
+      <Footer />
     </div>
   );
 }
-
-export default App;
