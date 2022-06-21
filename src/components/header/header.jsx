@@ -43,7 +43,7 @@ function Header(props) {
             t.file ?
                 <a className="nav-link text-info" download
                                 key={t + '_' + activeTab + "-" + index.toString()}
-                                href={process.env.PUBLIC_URL + t.href}
+                                href={t.href}
                                 rel="noreferrer"
                                 target="_blank">
                     {t.tab}

@@ -39,7 +39,7 @@ function configurations() {
         "header-tabs": [
             {"tab": "About Me"},
             {"tab": "Github", "href": "https://github.com/xrzy1985"},
-            {"tab": "Resume", "href": "/resume06172022.pdf", "file": true},
+            {"tab": "Resume", "href": process.env.PUBLIC_URL + "/resume06172022.pdf", "file": true},
             {"tab": "Work Experience"}
         ],
         "name": "James Patterson",
