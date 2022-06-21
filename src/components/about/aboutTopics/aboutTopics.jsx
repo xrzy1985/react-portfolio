@@ -3,10 +3,9 @@ import '../../components.css';
 import '../about.css';
 
 function AboutTopics(props) {
-    const [ index, setIndex ] = useState(props.index);
-    const [ topic, setTopic ] = useState(props.topic.topic);
-    const [ details, setDetails ] = useState(props.topic.details);
-    const [ key, setKey ] = useState(props.key);
+    const [ topic ] = useState(props.topic.topic);
+    const [ details ] = useState(props.topic.details);
+    const [ key ] = useState(props.topic + '_' + props.index);
 
     return (
         <ul key={key} className="list-group list-group-flush" id="ul-margin">

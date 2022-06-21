@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import constants from '../../state/constants.json';
-import About from "../about/about";
-import WorkExperience from "../work/workExperience";
+import configurations from '../../state/constants.js';
+import About from "../about/about.jsx";
+import WorkExperience from "../work/workExperience.jsx";
 
 export default function Main(props) {
-    const [ tab, setTab ] = useState(props.selection.tab);
-    const [ sections, setSections ] = useState(constants["tab-section-headers"]);
+    const constants = configurations();
+    // const [ tab, setTab ] = useState(props.selection.tab);
+    const [ sections ] = useState(constants["tab-section-headers"]);
 
     function handleActiveTab() {
         return props.selection.tab < 1 ?

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import constants from "../../state/constants.json";
-import HeaderService from './header.service';
+import configurations from "../../state/constants.js";
 import "./header.css";
 
 function Header(props) {
-    const img = HeaderService.getImgDetails();
-    const [ tabs, setTabs ] = useState(constants["header-tabs"])
-    const [ name, setName ] = useState(constants.name);
-    const [ email, setEmail ] = useState(constants.email);
+    const constants = configurations();
+    const img = {alt: "", size: constants["header-img-size"], url: constants["random-photo-url"]};
+    const [ tabs ] = useState(constants["header-tabs"])
+    const [ name ] = useState(constants.name);
+    const [ email ] = useState(constants.email);
     const [ activeTab, setActiveTab ] = useState(0);
 
     return (
@@ -34,22 +34,22 @@ function Header(props) {
     );
 
     function _onClick(_index){
-        props.changeTab(_index);
         setActiveTab(_index);
+        props.changeTab(_index);
     }
 
     function getTab(t, index) {
         return (t || {}).href ?
             t.file ?
                 <a className="nav-link text-info" download
-                                key={t + "-" + index.toString()}
-                                href={process.env.PUBLIC_URL + t.href}
+                                key={t + '_' + activeTab + "-" + index.toString()}
+                                href={process.env.PUBLIC_URL + '/' + t.href}
                                 rel="noreferrer"
                                 target="_blank">
                     {t.tab}
                 </a> :
                 <a className="nav-link text-info"
-                                key={t + "-" + index.toString()}
+                                key={t + '_' + activeTab + "-" + index.toString()}
                                 href={t.href}
                                 rel="noreferrer"
                                 target="_blank">
@@ -57,7 +57,7 @@ function Header(props) {
                 </a> :
             <button className="btn btn-link"
                             id="nav-form-a"
-                            key={t+"-"+index.toString()}
+                            key={t + '_' + activeTab + "-" + index.toString()}
                             onClick={() => {_onClick(index)}}
                             type="button">
                 {t.tab}

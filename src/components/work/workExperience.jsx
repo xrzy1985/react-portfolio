@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import constants from '../../state/constants.json';
 
 export default function WorkExperience(props) {
-    const [ title, setTitle ] = useState(props.children);
+    const [ title ] = useState(props.children);
     const _key = props.children + '_';
     return (
         <React.Fragment>

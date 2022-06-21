@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import constants from '../../state/constants.json';
+import React from 'react';
+import configurations from '../../state/constants.js';
 import './footer.css';
 
 const Footer = () => {
+    const constants = configurations();
     return (
         <React.Fragment>
             <footer className="page-footer font-small blue" id="footer">
